@@ -11,6 +11,9 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { BasicHighlightDirective } from './shared/basic-highlight.directive';
+import { BlazingHighlightDirective } from './shared/blazing-highlight.directive';
+import { EavesdropperDirective } from './shared/eavesdropper.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
     ShoppingListComponent,
     ShoppingEditComponent,
     RecipeDetailComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    BasicHighlightDirective,
+    BlazingHighlightDirective,
+    EavesdropperDirective
   ],
   imports: [
     BrowserModule,
