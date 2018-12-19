@@ -11,13 +11,17 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a appEavesdropper href="#">Manage</a>
+              <a appEavesdropper [defaultColor]="'yellow'" [highlightColor]="'blue'" href="#">Manage</a>
               <ul class="dropdown">
                 <li appBasicHighlight><a href="#">Save</a></li>
-                <li appBlazingHighlight><a href="#">Fetch</a></li>
+                <li appBlazingHighlight ><a href="#">Fetch</a></li>
               </ul>
             </li>
           </ul>
+      </div>
+
+      <div *appUnless="secretSecure" class="navbar-header">
+        <a href="#" class="navbar-brand"> Secret Recipe Book</a>
       </div>
   </div>
 </nav>

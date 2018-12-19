@@ -14,6 +14,7 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { BasicHighlightDirective } from './shared/basic-highlight.directive';
 import { BlazingHighlightDirective } from './shared/blazing-highlight.directive';
 import { EavesdropperDirective } from './shared/eavesdropper.directive';
+import { UnlessDirective } from './shared/unless.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EavesdropperDirective } from './shared/eavesdropper.directive';
     RecipeItemComponent,
     BasicHighlightDirective,
     BlazingHighlightDirective,
-    EavesdropperDirective
+    EavesdropperDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
