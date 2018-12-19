@@ -15,6 +15,7 @@ import { BasicHighlightDirective } from './shared/basic-highlight.directive';
 import { BlazingHighlightDirective } from './shared/blazing-highlight.directive';
 import { EavesdropperDirective } from './shared/eavesdropper.directive';
 import { UnlessDirective } from './shared/unless.directive';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UnlessDirective } from './shared/unless.directive';
     BasicHighlightDirective,
     BlazingHighlightDirective,
     EavesdropperDirective,
-    UnlessDirective
+    UnlessDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
