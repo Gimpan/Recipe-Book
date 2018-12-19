@@ -10,9 +10,11 @@
           <li><a href="#" (click)="OnSelect('shopping-list')">Shopping List</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a appEavesdropper [defaultColor]="'yellow'" [highlightColor]="'blue'" href="#">Manage</a>
-              <ul class="dropdown">
+            <li class="dropdown" appDropdown>
+              <a href="#" class="dropdown-toggle" role="button"
+              appEavesdropper [defaultColor]="'yellow'" [highlightColor]="'blue'"
+              >Manage <span class="caret"></span></a>
+              <ul class="dropdown-menu">
                 <li appBasicHighlight><a href="#">Save</a></li>
                 <li appBlazingHighlight ><a href="#">Fetch</a></li>
               </ul>
