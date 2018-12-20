@@ -21,4 +21,9 @@ ingredientsChanged = new EventEmitter<Ingredient[]>();
     this.ingredients.push(ingredient);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
+
+  addIngredients(ingredients: Ingredient[]) {
+    this.ingredients.push(...ingredients); // spread operator to spread array into a list of objects for one push. Instead of looping
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }
