@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Route, Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { RecipesComponent } from './recipes.component';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
