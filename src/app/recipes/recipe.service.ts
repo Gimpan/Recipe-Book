@@ -1,7 +1,6 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
 
 @Injectable({ // Services don't need to be Injectable.
@@ -16,7 +15,7 @@ export class RecipeService {
     new Recipe('Korean burger', 'Awesome!', 'https://www.chatelaine.com/wp-content/uploads/2017/05/Bibimbap-homemade-burgers.jpg',
     [new Ingredient('Ground beef', 1), new Ingredient('Bun', 1)])
   ];
-  constructor(private slService: ShoppingListService) { }
+  constructor() { }
 
   getRecipes() {
     return this.recipes.slice(); // use slice to get copy of object, instead of reference
@@ -24,10 +23,6 @@ export class RecipeService {
 
   getRecipe( index: number) {
     return this.recipes[index]; // use slice to get copy of object, instead of reference
-  }
-
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.slService.addIngredients(ingredients);
   }
 
   addRecipe(recipe: Recipe) {

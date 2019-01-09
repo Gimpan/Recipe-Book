@@ -1,7 +1,11 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Response } from '@angular/http';
 import { DataStorageService } from '../../shared/data-storage.service';
-import { AuthService } from '../../auth/auth.service';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../store/app.reducer';
+import * as fromAuth from '../../auth/store/auth.reducers';
+import { Observable } from 'rxjs';
+import * as authActions from '../../auth/store/auth.actions';
 
 
 @Component({
@@ -10,11 +14,13 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  secretSecure: Boolean = true;
+
+  authState: Observable<fromAuth.State>;
   @Output() featureSelected = new EventEmitter<string>();
-  constructor(private dataStorageService: DataStorageService, public authService: AuthService) { }
+  constructor(private dataStorageService: DataStorageService, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
+    this.authState = this.store.select('auth');
   }
 
   OnSelect(feature: string) {
@@ -35,10 +41,12 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    this.authService.logout();
+    // firebase.auth().signOut();
+    // this.token = null;
+    this.store.dispatch(new authActions.Logout());
   }
 
   isAuthenticated() {
-    return this.authService.isAuthenticated();
+    // return this.authService.isAuthenticated();
   }
 }

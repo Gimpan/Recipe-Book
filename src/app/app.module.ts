@@ -9,7 +9,12 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { StoreModule } from '@ngrx/store';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
+import { reducers } from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {environment} from './/../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,11 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
     SharedModule,
     AuthModule,
     CoreModule,
-    StoreModule.forRoot({shoppingList: shoppingListReducer}) // Register reducers
+    EffectsModule.forRoot([AuthEffects]),
+    // StoreModule.forRoot({shoppingList: shoppingListReducer}) Register reducers javascript obj
+    StoreModule.forRoot(reducers), // or import and register reducers
+    StoreRouterConnectingModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : [] // if env is prod add StoreDevtoolsModule. Otherwise pass empty
   ],
   providers: [],
   bootstrap: [AppComponent]
