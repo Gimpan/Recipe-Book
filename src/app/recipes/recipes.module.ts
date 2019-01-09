@@ -11,6 +11,8 @@ import { RecipesRoutingModule } from './recipe-route.module';
 import { SharedModule } from '../shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { recipeReducer } from './store/recipe.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { RecipeEffects } from './store/recipe.effects';
 
 @NgModule({
   declarations:
@@ -28,7 +30,8 @@ import { recipeReducer } from './store/recipe.reducers';
     ReactiveFormsModule,
     RecipesRoutingModule,
     SharedModule,
-    StoreModule.forFeature('recipes', recipeReducer) // add feature reducer and its state to global once loaded (feature is lazy loaded)
+    StoreModule.forFeature('recipes', recipeReducer), // add feature reducer and its state to global once loaded (feature is lazy loaded)
+    EffectsModule.forFeature([RecipeEffects])
   ],
   providers:
   [],

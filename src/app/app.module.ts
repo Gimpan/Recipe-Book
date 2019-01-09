@@ -15,6 +15,7 @@ import { AuthEffects } from './auth/store/auth.effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {environment} from './/../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {environment} from './/../environments/environment';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     ShoppingListModule,
     SharedModule,
@@ -34,7 +36,7 @@ import {environment} from './/../environments/environment';
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [] // if env is prod add StoreDevtoolsModule. Otherwise pass empty
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
