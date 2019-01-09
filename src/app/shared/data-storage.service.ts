@@ -23,7 +23,7 @@ export class DataStorageService {
       switchMap((authState: fromAuth.State) => {
         return authState.token;
       }));
-
+      console.log('Get recipes token: ', token);
     // this.http.get('https://gimpan-116f7.firebaseio.com/recipes.json?auth=' + token)
     // .pipe(
     //   map(
