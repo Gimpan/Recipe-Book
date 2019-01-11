@@ -16,6 +16,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {environment} from './/../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     AuthModule,
     CoreModule,
+    BrowserAnimationsModule,
     EffectsModule.forRoot([AuthEffects]),
     // StoreModule.forRoot({shoppingList: shoppingListReducer}) Register reducers javascript obj
     StoreModule.forRoot(reducers), // or import and register reducers
