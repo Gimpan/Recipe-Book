@@ -17,6 +17,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {environment} from './/../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // StoreModule.forRoot({shoppingList: shoppingListReducer}) Register reducers javascript obj
     StoreModule.forRoot(reducers), // or import and register reducers
     StoreRouterConnectingModule,
-    !environment.production ? StoreDevtoolsModule.instrument() : [] // if env is prod add StoreDevtoolsModule. Otherwise pass empty
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    ServiceWorkerModule.register('ngsw-worker.js',
+    { enabled: environment.production }) // if env is prod add StoreDevtoolsModule. Otherwise pass empty
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
